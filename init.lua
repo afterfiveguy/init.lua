@@ -472,16 +472,15 @@ require('lazy').setup({
       }
     end,
   },
-
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  --  require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns',
+  require 'kickstart.plugins.themes.gruvbox',
+  --  require 'kickstart.plugins.neo-tree',
   --  require 'kickstart.plugins.rose-pine',
   --  require 'kickstart.plugins.themes.tokyonight',
-  require 'kickstart.plugins.themes.gruvbox',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
