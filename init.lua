@@ -462,9 +462,14 @@ require('lazy').setup({
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter').install { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+        auto_install = true,
+        highlight = { enable = true },
+      }
     end,
   },
 
@@ -475,7 +480,8 @@ require('lazy').setup({
   --  require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns',
   --  require 'kickstart.plugins.rose-pine',
-  require 'kickstart.plugins.themes.tokyonight',
+  --  require 'kickstart.plugins.themes.tokyonight',
+  require 'kickstart.plugins.themes.gruvbox',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
