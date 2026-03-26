@@ -315,6 +315,7 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
+        astro = {},
         ts_ls = {
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = false
@@ -336,7 +337,9 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua',
         'prettierd',
+        'astro-language-server',
       })
+
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       for server_name, server in pairs(servers) do
@@ -397,6 +400,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        astro = { 'prettierd', 'prettier', stop_after_first = true },
         json = { 'prettierd', 'prettier', stop_after_first = true },
         css = { 'prettierd', 'prettier', stop_after_first = true },
       },
@@ -466,7 +470,7 @@ require('lazy').setup({
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+        ensure_installed = { 'astro', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
         auto_install = true,
         highlight = { enable = true },
       }
