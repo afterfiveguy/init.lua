@@ -453,14 +453,6 @@ require('lazy').setup({
     config = function()
       require('mini.ai').setup { n_lines = 500 }
       require('mini.surround').setup()
-
-      local statusline = require 'mini.statusline'
-      statusline.setup { use_icons = vim.g.have_nerd_font }
-
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
     end,
   },
 
@@ -481,8 +473,12 @@ require('lazy').setup({
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.gitsigns',
-  require 'kickstart.plugins.themes.gruvbox',
+  require 'kickstart.plugins.themes.everforest',
+  require 'kickstart.plugins.bufferline',
+  require 'kickstart.plugins.aerial',
+  require 'kickstart.plugins.lualine',
   --  require 'kickstart.plugins.neo-tree',
+  --  require 'kickstart.plugins.themes.gruvbox',
   --  require 'kickstart.plugins.rose-pine',
   --  require 'kickstart.plugins.themes.tokyonight',
 }, {
